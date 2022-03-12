@@ -1,0 +1,19 @@
+.single-prod-container {
+    width: 100%;
+    display: flex;
+    padding: 5%;
+
+    &__left-column {
+        width: 55%;
+
+        img {
+            width: 100%;
+            mix-blend-mode: multiply;
+        }
+    }
+
+    &__right-column {
+        width: 35%;
+        padding-left: 5%;
+    }
+}
