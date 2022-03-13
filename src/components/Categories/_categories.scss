@@ -1,0 +1,44 @@
+.categories-list {
+    position: fixed;
+    background-color: #fff;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    h3 {
+        text-align: center;
+        margin-left: auto;
+    }
+
+    ul {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 0.75rem;
+            padding-left: 2rem;
+            font-weight: bold;
+            border-bottom: 1px solid #d1d1d1;
+            transition: 0.3s;
+
+            &:hover {
+                padding-left: 3rem;
+            }
+        }
+    }
+
+    .categories-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        border-bottom: 1px solid #d1d1d1;
+
+        button {
+            margin-left: auto;
+        }
+    }
+}

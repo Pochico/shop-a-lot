@@ -15,6 +15,8 @@ export default function SingleProduct() {
     const { productId } = useParams();
 
     useEffect(() => {
+        console.log('use effect3')
+
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then((data) => data.json())
             .then((data) => setSingleProductInfo(data));

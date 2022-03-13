@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useContext, useReducer } from 'react';
+import { initialState, LoginReducer } from './LoginReducer';
 
 // const AuthDispatchContext = React.createContext();
-const LoginContext = React.createContext();
+export const MyLoginContext = React.createContext();
 
-export const useLoginContext = () => React.useContext(LoginContext);
+export const useLoginContext = () => {
+    return useContext(MyLoginContext);
+};
 
-export const LoginProvider = ({ children, initialState, reducer }) => {
-    const [globalState, dispatch] = React.useReducer(reducer, initialState);
+export default function LoginContext({ children }) {
+    const [userState, dispatch] = useReducer(LoginReducer, initialState);
+
+    let loginStore = {
+        userState,
+        dispatch,
+    };
+
+    console.log('context AAAAAAAAAAAAA:' + userState.username);
 
     return (
-        <LoginContext.Provider value={[globalState, dispatch]}>
-            {/* <AuthDispatchContext.Provider value={AuthReducer}> */}
+        <MyLoginContext.Provider value={loginStore}>
             {children}
-            {/* </AuthDispatchContext.Provider> */}
-        </LoginContext.Provider>
+        </MyLoginContext.Provider>
     );
-};
+}

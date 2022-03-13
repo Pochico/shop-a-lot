@@ -6,20 +6,18 @@ export default function Cart() {
     const { cartItems, cartOpen, setCartOpen } = useMyCart();
 
     const cartStyle = {
-        width: cartOpen ? '100%' : '0%',
-        padding: cartOpen ? '2% 5%' : '0 0',
-    };
-
-    const cartItemOpacity = {
-        opacity: cartOpen ? '1' : '0',
-        transitionDelay: '0.15s',
+        width: cartOpen ? '75%' : '0%',
+        padding: cartOpen ? '0 5%' : '0 0',
     };
 
     return (
         <div className="cart-list" style={cartStyle}>
             <div className="cart-header">
-                <h3 className="cart-list__title">My Cart</h3>
-                <button onClick={() => setCartOpen(false)}>
+                <h3>My Cart</h3>
+                <button
+                    className="close-button"
+                    onClick={() => setCartOpen(false)}
+                >
                     <CloseIcon fontSize="large" />
                 </button>
             </div>

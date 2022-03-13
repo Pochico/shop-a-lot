@@ -7,27 +7,37 @@ import './styles/main.scss';
 import SingleProduct from './pages/SingleProduct/SingleProduct';
 import Login from './pages/Login/Login';
 import Cart from './components/Cart/Cart';
-import { LoginProvider } from './context/LoginContext';
+import LoginContext from './context/LoginContext';
+import CategoriesContext from './context/CategoriesContext';
+import Categories from './components/Categories/Categories';
+import ProductsByCategory from './pages/ProductsByCategory/ProductsByCategory';
 
 function App() {
     return (
         <div className="App">
-            <LoginProvider>
+            <LoginContext>
                 <CartContext>
-                    <Router>
-                        <Header />
-                        <Cart />
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route
-                                path="SingleProduct/:productId"
-                                element={<SingleProduct />}
-                            />
-                            <Route path="/login" element={<Login />} />
-                        </Routes>
-                    </Router>
+                    <CategoriesContext>
+                        <Router>
+                            <Header />
+                            <Cart />
+                            <Categories />
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route
+                                    path="/category/:categoryName"
+                                    element={<ProductsByCategory />}
+                                />
+                                <Route
+                                    path="SingleProduct/:productId"
+                                    element={<SingleProduct />}
+                                />
+                                <Route path="/login" element={<Login />} />
+                            </Routes>
+                        </Router>
+                    </CategoriesContext>
                 </CartContext>
-            </LoginProvider>
+            </LoginContext>
         </div>
     );
 }

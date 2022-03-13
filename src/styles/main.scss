@@ -3,6 +3,7 @@
 @import '../components/ProductList/productlist';
 @import '../pages/Login/login';
 @import '../components/Cart/cart';
+@import '../components/Categories/categories';
 
 body {
     margin: 0;
@@ -21,5 +22,15 @@ body {
     a {
         color: black;
         text-decoration: none;
+    }
+
+    .close-button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMyCart } from '../../context/CartContext';
+import { useParams } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
-export default function ProductList() {
+export default function ProductListCategory() {
     const { cartItems, setCartItems } = useMyCart();
 
     const [products, setProducts] = useState([]);
@@ -24,18 +25,15 @@ export default function ProductList() {
         }
     };
 
-    let category;
+    const { categoryName } = useParams();
 
     useEffect(() => {
+        console.log('use effect2')
 
-        console.log('use effect1')
-        fetch(`https://fakestoreapi.com/products`)
+        fetch(`https://fakestoreapi.com/products/category/${categoryName}`)
             .then((data) => data.json())
-            // .then((data) => console.table(data));
             .then((data) => setProducts(data));
     }, []);
-
-    // TODO separar el producto individual del product list para llamar a ese componente dentro del map
 
     return (
         <div className="product-list">

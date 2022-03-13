@@ -1,28 +1,27 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import PersonIcon from '@mui/icons-material/Person';
 
 import { useMyCart } from '../../context/CartContext';
-// import { AuthReducer } from '../../context/LoginContext';
 import '../../context/LoginContext';
 import { Link } from 'react-router-dom';
-
-const currentUser = localStorage.getItem('currentUser')
-    ? localStorage.getItem('currentUser')
-    : '';
+import { useLoginContext } from '../../context/LoginContext';
+import { useMyCategoriesContext } from '../../context/CategoriesContext';
 
 export default function Header() {
     const { cartItems, setCartOpen } = useMyCart();
+    const { userState } = useLoginContext();
 
-    const openCart = () => {
-        setCartOpen(true);
-    };
+    const { setCategoriesOpen } = useMyCategoriesContext();
 
     return (
         <header>
             <nav className="menu">
-                <button className="menu__button">
+                <button
+                    className="menu__button"
+                    onClick={() => setCategoriesOpen(true)}
+                >
                     <MenuIcon fontSize="large" />
                 </button>
 
@@ -30,12 +29,17 @@ export default function Header() {
 
                 <div className="menu__button-row">
                     <Link to="/login">
-                        <span className="user-name">{currentUser}</span>
+                        <span className="user-name" id="user-name">
+                            {userState.username}
+                        </span>
                         <button className="menu__button">
                             <PersonIcon fontSize="large" />
                         </button>
                     </Link>
-                    <button className="menu__button" onClick={() => openCart()}>
+                    <button
+                        className="menu__button"
+                        onClick={() => setCartOpen(true)}
+                    >
                         <LocalMallIcon fontSize="large" />
                         {cartItems.length > 0 && (
                             <div className="menu__button__notification">

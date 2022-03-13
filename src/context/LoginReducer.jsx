@@ -1,4 +1,7 @@
 export const initialState = {
+    // username: localStorage.getItem('currentUser')
+    //     ? localStorage.getItem('currentUser')
+    //     : '',
     username: '',
     token: '',
     password: '',
@@ -7,7 +10,7 @@ export const initialState = {
     errorMessage: null,
 };
 
-export const LoginReducer = (state = initialState, action) => {
+export function LoginReducer(state = initialState, action) {
     switch (action.type) {
         case 'INPUT_FIELD_CHANGE': {
             return {
@@ -27,9 +30,11 @@ export const LoginReducer = (state = initialState, action) => {
 
         case 'LOGIN_SUCCESS': {
             console.log('SUCCESS');
+            console.log(action.payload.username);
             localStorage.setItem('currentUser', state.username);
             return {
                 ...state,
+                username: action.payload.username,
                 isLoggedIn: true,
                 isLoading: false,
             };
@@ -47,6 +52,8 @@ export const LoginReducer = (state = initialState, action) => {
         }
 
         case 'LOGOUT': {
+            console.log('LOGOUT');
+            localStorage.clear();
             return {
                 ...state,
                 username: '',
@@ -60,4 +67,4 @@ export const LoginReducer = (state = initialState, action) => {
         default:
             throw new Error(`Unhandled action type: ${action.type}`);
     }
-};
+}
