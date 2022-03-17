@@ -19,25 +19,22 @@ export const useMyCartUpdate = () => {
 export default function CartContext({ children }) {
     const [cartItems, setCartItems] = useState([]);
     const [cartOpen, setCartOpen] = useState(false);
+    const [totalPrice, setTotalPrice] = useState(0);
 
-    // const updateCart = () => {
-    //     setCartItems(() => {});
-    // };
+    console.log(totalPrice);
 
     const store = {
         cartItems,
         setCartItems,
         cartOpen,
         setCartOpen,
+        totalPrice,
+        setTotalPrice,
     };
 
     return (
         <MyCartContext.Provider value={store}>
-            {/* <MyCartOpenContext.Provider value={setCartOpen}> */}
-                {/* <MyCartUpdateContext.Provider value={updateCart}> */}
-                    {children}
-                {/* </MyCartUpdateContext.Provider> */}
-            {/* </MyCartOpenContext.Provider> */}
+            {children}
         </MyCartContext.Provider>
     );
 }

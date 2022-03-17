@@ -3,8 +3,16 @@
     background-color: #fff;
     height: 100vh;
     top: 0;
-    left: 0;
+    left: -50%;
+    width: 50%;
     overflow: hidden;
+    z-index: 10;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
 
     h3 {
         text-align: center;
@@ -18,14 +26,32 @@
         margin: 0;
 
         li {
-            padding: 0.75rem;
+            padding: 1rem 0;
             padding-left: 2rem;
             font-weight: bold;
             border-bottom: 1px solid #d1d1d1;
             transition: 0.3s;
+            background: linear-gradient(
+                to right,
+                rgba(255, 143, 143, 1) 0%,
+                rgba(252, 200, 154, 1) 21%,
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 1) 100%
+            );
+            background-position: -300px center;
+            background-repeat: no-repeat;
 
             &:hover {
                 padding-left: 3rem;
+                background: linear-gradient(
+                    to right,
+                    rgba(255, 143, 143, 1) 0%,
+                    rgba(252, 200, 154, 1) 21%,
+                    rgba(255, 255, 255, 1) 40%,
+                    rgba(255, 255, 255, 1) 100%
+                );
+                background-position-x: 0px center;
+                background-repeat: no-repeat;
             }
         }
     }

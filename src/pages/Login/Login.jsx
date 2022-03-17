@@ -12,7 +12,6 @@ export default function Login() {
     // let password = '';
     // let error = null;
 
-    console.log('loging');
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -51,7 +50,7 @@ export default function Login() {
     const errorStyle = {
         color: error ? 'white' : 'transparent',
     };
-    console.log('username dentro de login fuera de submit: ' + username);
+
     return (
         <div>
             {username === null || username === '' ? (

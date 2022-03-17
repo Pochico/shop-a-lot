@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
+import { useMyCart } from '../../context/CartContext';
 
 export default function SingleProduct() {
     const [singleProductInfo, setSingleProductInfo] = useState({
@@ -11,12 +12,26 @@ export default function SingleProduct() {
         price: '',
         rating: '',
     });
+    const { cartItems, setCartItems } = useMyCart();
+
+    const addItemToCart = (id) => {
+        const found = cartItems.find((cartItem) => cartItem.id === id);
+
+        if (!found) {
+            const cartItem = {
+                ...singleProductInfo,
+                count: 1,
+            };
+            setCartItems([...cartItems, cartItem]);
+        } else {
+            found.count++;
+            setCartItems([...cartItems]);
+        }
+    };
 
     const { productId } = useParams();
 
     useEffect(() => {
-        console.log('use effect3')
-
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then((data) => data.json())
             .then((data) => setSingleProductInfo(data));
@@ -29,15 +44,22 @@ export default function SingleProduct() {
         <div className="single-prod-container">
             <div className="single-prod-container__left-column">
                 <img src={image} alt={title} />
-                <p>{description}</p>
             </div>
             <div className="single-prod-container__right-column">
                 <h3>{title}</h3>
-                <p>
+                <p className="product-rating">
                     <StarHalfIcon sx={{ color: 'goldenrod' }} /> {rating.rate} /
                     5
                 </p>
-                <p>${price}</p>
+                <p>{description}</p>
+                <p className="price-tag">${price}</p>
+
+                <button
+                    className="add-to-cart-button"
+                    onClick={() => addItemToCart(id)}
+                >
+                    Add to Cart
+                </button>
             </div>
         </div>
     );

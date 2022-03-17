@@ -7,18 +7,24 @@ export default function Categories() {
     const { setCategoriesOpen, categoriesOpen } = useMyCategoriesContext();
 
     const categoriesStyle = {
-        width: categoriesOpen ? '50%' : '0%',
+        left: categoriesOpen ? '0%' : '-100%',
     };
 
     return (
         <div className="categories-list" style={categoriesStyle}>
             <div className="categories-header">
                 <h3>Categories</h3>
-                <button className='close-button' onClick={() => setCategoriesOpen(false)}>
+                <button
+                    className="close-button"
+                    onClick={() => setCategoriesOpen(false)}
+                >
                     <CloseIcon fontSize="large" />
                 </button>
             </div>
             <ul>
+                <Link to={'/'}>
+                    <li>All Categories</li>
+                </Link>
                 <Link to={'/category/jewelery'}>
                     <li>Jewelery</li>
                 </Link>

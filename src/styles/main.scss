@@ -7,12 +7,18 @@
 
 body {
     margin: 0;
+    margin-top: 24px;
     padding: 0;
-    background-image: url('../../public/assets/abstract-gabdf32901_1920.jpg');
+    background-image: url('../assets/abstract-gabdf32901_1920.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
+    overflow-x: hidden;
+
+    @media screen and (max-width: 767px) {
+        margin-top: 54px;
+    }
 
     * {
         box-sizing: border-box;
@@ -29,6 +35,12 @@ body {
         border: none;
         outline: none;
 
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    button {
         &:hover {
             cursor: pointer;
         }

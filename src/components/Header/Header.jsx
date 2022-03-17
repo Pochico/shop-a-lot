@@ -24,9 +24,9 @@ export default function Header() {
                 >
                     <MenuIcon fontSize="large" />
                 </button>
-
-                <h1>Shopalo todo</h1>
-
+                <Link to="/">
+                    <h1>Shopalo todo</h1>
+                </Link>
                 <div className="menu__button-row">
                     <Link to="/login">
                         <span className="user-name" id="user-name">

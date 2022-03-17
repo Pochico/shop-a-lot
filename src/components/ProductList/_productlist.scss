@@ -5,13 +5,22 @@
     padding: 5%;
 
     &__item {
-        width: 30%;
-        min-width: 200px;
+        width: 31%;
+        min-width: 280px;
         margin: 40px 0;
         box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
         border-radius: 12px;
         transition: 0.3s;
         background-color: #fafafa;
+
+        @media screen and (max-width: 933px) {
+            width: 45%;
+        }
+
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            margin: 20px 0;
+        }
 
         &:hover {
             // transform: rotate3d(1, -1, 0, 20deg);
@@ -21,7 +30,7 @@
         }
 
         &__top {
-            padding: 1rem;
+            padding: 2rem;
 
             &__button-row {
                 display: flex;

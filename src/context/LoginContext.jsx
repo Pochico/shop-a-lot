@@ -16,8 +16,6 @@ export default function LoginContext({ children }) {
         dispatch,
     };
 
-    console.log('context AAAAAAAAAAAAA:' + userState.username);
-
     return (
         <MyLoginContext.Provider value={loginStore}>
             {children}

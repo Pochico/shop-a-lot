@@ -30,7 +30,6 @@ export function LoginReducer(state = initialState, action) {
 
         case 'LOGIN_SUCCESS': {
             console.log('SUCCESS');
-            console.log(action.payload.username);
             localStorage.setItem('currentUser', state.username);
             return {
                 ...state,

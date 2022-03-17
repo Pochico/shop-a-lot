@@ -24,18 +24,11 @@ export default function ProductList() {
         }
     };
 
-    let category;
-
     useEffect(() => {
-
-        console.log('use effect1')
         fetch(`https://fakestoreapi.com/products`)
             .then((data) => data.json())
-            // .then((data) => console.table(data));
             .then((data) => setProducts(data));
     }, []);
-
-    // TODO separar el producto individual del product list para llamar a ese componente dentro del map
 
     return (
         <div className="product-list">

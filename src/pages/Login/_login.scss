@@ -1,6 +1,6 @@
 .login-container {
     width: 60%;
-    margin: 5rem auto;
+    margin: 10rem auto;
     padding: 2rem;
     border-bottom: 1px solid #fafaface;
     border-right: 1px solid #fafafa;
@@ -8,6 +8,14 @@
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 6px 12px 20px rgba(0, 0, 0, 0.7);
+
+    @media screen and (max-width: 992px) {
+        width: 80%;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
 
     h2 {
         text-align: center;
@@ -17,7 +25,7 @@
     h3 {
         margin: 6px 0;
 
-        &.logged-in-text{
+        &.logged-in-text {
             text-align: center;
             padding-bottom: 24px;
         }
@@ -62,7 +70,7 @@
             cursor: pointer;
         }
 
-        &.logged-in-button{
+        &.logged-in-button {
             margin-left: 25%;
         }
     }

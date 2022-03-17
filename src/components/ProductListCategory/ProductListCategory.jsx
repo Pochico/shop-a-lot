@@ -28,8 +28,6 @@ export default function ProductListCategory() {
     const { categoryName } = useParams();
 
     useEffect(() => {
-        console.log('use effect2')
-
         fetch(`https://fakestoreapi.com/products/category/${categoryName}`)
             .then((data) => data.json())
             .then((data) => setProducts(data));
