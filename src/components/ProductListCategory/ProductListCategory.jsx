@@ -31,7 +31,7 @@ export default function ProductListCategory() {
         fetch(`https://fakestoreapi.com/products/category/${categoryName}`)
             .then((data) => data.json())
             .then((data) => setProducts(data));
-    }, []);
+    }, [categoryName]);
 
     return (
         <div className="product-list">
