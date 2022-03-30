@@ -12,7 +12,7 @@ export default function Login() {
     // let password = '';
     // let error = null;
 
-    const onSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         console.log('userState LOGIN SUBMIT:' + username);
@@ -29,9 +29,7 @@ export default function Login() {
                 }),
             })
                 .then((res) => res.json())
-                .then((json) => {
-                    // console.log(json);
-                });
+                .then((json) => {});
             dispatch({
                 type: 'LOGIN_SUCCESS',
                 payload: { username: username },
@@ -57,7 +55,7 @@ export default function Login() {
                 <form
                     className="login-container"
                     style={formStyle}
-                    onSubmit={() => onSubmit()}
+                    onSubmit={() => handleSubmit()}
                 >
                     <h2>Login</h2>
                     <label>

@@ -1,7 +1,4 @@
 export const initialState = {
-    // username: localStorage.getItem('currentUser')
-    //     ? localStorage.getItem('currentUser')
-    //     : '',
     username: '',
     token: '',
     password: '',

@@ -21,8 +21,6 @@ export default function CartContext({ children }) {
     const [cartOpen, setCartOpen] = useState(false);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    console.log(totalPrice);
-
     const store = {
         cartItems,
         setCartItems,
