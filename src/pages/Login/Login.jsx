@@ -4,7 +4,7 @@ import { useLoginContext } from '../../context/LoginContext';
 export default function Login() {
     const { userState, dispatch } = useLoginContext();
 
-    const { username, password, error } = userState;
+    const { username, password, error, isLoggedIn } = userState;
 
     // Si guardas la contraseña en google entra solo en el login al hacer click en cualquier parte de la pantalla
 
@@ -12,8 +12,9 @@ export default function Login() {
     // let password = '';
     // let error = null;
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
+        debugger;
+        console.log('before prevent');
 
         console.log('userState LOGIN SUBMIT:' + username);
 
@@ -51,11 +52,30 @@ export default function Login() {
 
     return (
         <div>
-            {username === null || username === '' ? (
+            {isLoggedIn ? (
+                <div className="login-container">
+                    <h3 className="logged-in-text">
+                        Welcome {username}, how was your day?
+                    </h3>
+                    <button
+                        onClick={() =>
+                            dispatch({
+                                type: 'LOGOUT',
+                            })
+                        }
+                        className="logged-in-button"
+                    >
+                        Logout
+                    </button>
+                </div>
+            ) : (
                 <form
                     className="login-container"
                     style={formStyle}
-                    onSubmit={() => handleSubmit()}
+                    onSubmit={function (e) {
+                        e.preventDefault();
+                        handleSubmit();
+                    }}
                 >
                     <h2>Login</h2>
                     <label>
@@ -64,14 +84,15 @@ export default function Login() {
                             type="text"
                             name="username"
                             value={username}
-                            onChange={(e) =>
+                            onChange={function (e) {
                                 dispatch({
                                     type: 'INPUT_FIELD_CHANGE',
                                     inputField: 'username',
                                     payload: e.target.value,
-                                })
-                            }
+                                });
+                            }}
                             placeholder="Username"
+                            required
                         />
                     </label>
                     <label>
@@ -89,6 +110,7 @@ export default function Login() {
                                 })
                             }
                             placeholder="Password"
+                            required
                         />
                     </label>
 
@@ -98,22 +120,6 @@ export default function Login() {
 
                     <button>Login</button>
                 </form>
-            ) : (
-                <div className="login-container">
-                    <h3 className="logged-in-text">
-                        Welcome {username}, how was your day?
-                    </h3>
-                    <button
-                        onClick={() =>
-                            dispatch({
-                                type: 'LOGOUT',
-                            })
-                        }
-                        className="logged-in-button"
-                    >
-                        Logout
-                    </button>
-                </div>
             )}
         </div>
     );

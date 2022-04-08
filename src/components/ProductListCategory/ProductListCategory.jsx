@@ -28,7 +28,11 @@ export default function ProductListCategory() {
     const { categoryName } = useParams();
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/category/${categoryName}`)
+        fetch(`https://fakestoreapi.com/products/category/${categoryName}`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
             .then((data) => data.json())
             .then((data) => setProducts(data));
     }, [categoryName]);

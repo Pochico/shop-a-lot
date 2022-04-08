@@ -25,7 +25,12 @@ export default function ProductList() {
     };
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products`)
+        fetch(`https://fakestoreapi.com/products`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            },
+        })
             .then((data) => data.json())
             .then((data) => setProducts(data));
     }, []);
