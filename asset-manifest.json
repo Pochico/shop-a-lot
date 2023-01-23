@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/shop-a-lot/static/css/main.9755549a.css",
-    "main.js": "/shop-a-lot/static/js/main.c940296a.js",
+    "main.css": "/shop-a-lot/static/css/main.831ed675.css",
+    "main.js": "/shop-a-lot/static/js/main.32441879.js",
     "static/media/abstract-gabdf32901_1920.jpg": "/shop-a-lot/static/media/abstract-gabdf32901_1920.9514f8e86650d2e96aa3.jpg",
     "index.html": "/shop-a-lot/index.html",
-    "main.9755549a.css.map": "/shop-a-lot/static/css/main.9755549a.css.map",
-    "main.c940296a.js.map": "/shop-a-lot/static/js/main.c940296a.js.map"
+    "main.831ed675.css.map": "/shop-a-lot/static/css/main.831ed675.css.map",
+    "main.32441879.js.map": "/shop-a-lot/static/js/main.32441879.js.map"
   },
   "entrypoints": [
-    "static/css/main.9755549a.css",
-    "static/js/main.c940296a.js"
+    "static/css/main.831ed675.css",
+    "static/js/main.32441879.js"
   ]
 }
