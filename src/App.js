@@ -23,16 +23,16 @@ function App() {
                             <Cart />
                             <Categories />
                             <Routes>
-                                <Route path="/" element={<Home />} />
+                                <Route path="shop-a-lot/" element={<Home />} />
                                 <Route
-                                    path="/category/:categoryName"
+                                    path="shop-a-lot/category/:categoryName"
                                     element={<ProductsByCategory />}
                                 />
                                 <Route
-                                    path="SingleProduct/:productId"
+                                    path="shop-a-lot/SingleProduct/:productId"
                                     element={<SingleProduct />}
                                 />
-                                <Route path="/login" element={<Login />} />
+                                <Route path="shop-a-lot/login" element={<Login />} />
                             </Routes>
                         </Router>
                     </CategoriesContext>

@@ -24,11 +24,11 @@ export default function Header() {
                 >
                     <MenuIcon fontSize="large" />
                 </button>
-                <Link to="/">
+                <Link to="shop-a-lot/">
                     <h1>Shopalo todo</h1>
                 </Link>
                 <div className="menu__button-row">
-                    <Link to="/login">
+                    <Link to="shop-a-lot/login">
                         <span className="user-name" id="user-name">
                             {userState.username}
                         </span>

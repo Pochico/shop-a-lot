@@ -22,19 +22,19 @@ export default function Categories() {
                 </button>
             </div>
             <ul>
-                <Link to={'/'}>
+                <Link to={'shop-a-lot/'}>
                     <li>All Categories</li>
                 </Link>
-                <Link to={'/category/jewelery'}>
+                <Link to={'shop-a-lot/category/jewelery'}>
                     <li>Jewelery</li>
                 </Link>
-                <Link to={'/category/electronics'}>
+                <Link to={'shop-a-lot/category/electronics'}>
                     <li>Electronics</li>
                 </Link>
-                <Link to={"/category/men's clothing"}>
+                <Link to={"shop-a-lot/category/men's clothing"}>
                     <li>Men's clothing</li>
                 </Link>
-                <Link to={"/category/women's clothing"}>
+                <Link to={"shop-a-lot/category/women's clothing"}>
                     <li>Women's clothing</li>
                 </Link>
             </ul>
